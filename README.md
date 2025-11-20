@@ -131,76 +131,34 @@ Hit Send
 
 ## Why I Selected This Tech Stack
 
-I selected this tech stack based on simplicity, reliability, and the ability to build an AI screener quickly, while still using production-ready tools used in real LLM applications.
+I selected this tech stack based on simplicity, reliability, and the ability to build a functional AI screener within a short timeframe:
 
-🚀 FastAPI
+## FastAPI
+FastAPI is lightweight, fast, and ideal for building clean REST APIs.
 
-FastAPI is the ideal choice for this backend because:
+Automatic Swagger documentation makes testing easier.
 
-It is lightweight, modern, and extremely fast.
+Supports async operations, which I use for parallel evaluation in the ranking API.
 
-Comes with built-in Swagger UI (/docs), which makes API testing easy.
+## Python
+Excellent ecosystem for AI and LLM projects.
 
-Has excellent support for async endpoints — crucial when calling LLMs in parallel.
+Simple to integrate with external APIs like Gemini.
 
-Easy to structure into clean modules (routes, models, services).
+Async programming is straightforward.
 
-🐍 Python
+## Gemini API (Gemini Flash 2.5)
+Free to use with an API key, which makes it accessible for personal projects and demos.
 
-Python was chosen because:
+Very fast and cost-efficient for evaluation-type tasks (scoring, summarization, feedback).
 
-Best ecosystem for AI, ML, and LLM development.
+Provides consistent text-quality judgments, which is essential for this screener.
 
-Works seamlessly with FastAPI and async programming.
+Asyncio (for /rank-candidates)
+Lets the API evaluate multiple answers in parallel → much faster responses.
 
-Clean syntax → helps deliver fast in a 48-hour build challenge.
-
-🔗 LangChain
-
-LangChain is used to simplify LLM integration and prompt-chaining.
-
-Why I used LangChain:
-
-Provides clean pipelines (prompt → model → parser), reducing boilerplate code.
-
-The JsonOutputParser ensures the LLM always returns strict, valid JSON.
-
-Easy to maintain prompts using ChatPromptTemplate.
-
-Supports async LLM calls with .ainvoke().
-
-Makes the code more modular, readable, and expandable (e.g., adding retrieval later).
-
-Using LangChain made the entire /evaluate-answer logic only a few lines while keeping structure clean:
-
-prompt | model | parser
+Scales better when multiple candidates are tested.
 
 
-This is the exact use-case LangChain is built for.
 
-🤖 Gemini API (Gemini Flash 2.5)
-
-Gemini was selected because:
-
-Free to use — perfect for assignments and demos.
-
-Extremely fast, ideal for scoring and summarizing answers.
-
-Produces consistent reasoning quality.
-
-Works smoothly with LangChain’s ChatGoogleGenerativeAI wrapper.
-
-⚡ Asyncio (Used in /rank-candidates)
-
-Asyncio allows all candidate answers to be evaluated at the same time:
-
-Much faster than processing each answer sequentially.
-
-Scales better for lists of 10–50 candidates.
-
-Makes the ranking endpoint feel production-ready.
-
-🎯 Final Summary
-
-This tech stack (FastAPI + Python + LangChain + Gemini + Asyncio) provides the perfect balance of speed, structure, simplicity, and LLM flexibility.
-It allowed me to build a clean AI Interview Screener quickly, while using tools that are actually used in real-world production LLM systems.
+### Overall Decision This stack provides the perfect balance of speed, simplicity, cost-effectiveness, and LLM flexibility, allowing me to build a production-like mini AI screener in a short time.
