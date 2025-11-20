@@ -1,4 +1,4 @@
-Gemini Mini AI interview Screener
+##Gemini Mini AI interview Screener
 
 Overview:
 
@@ -127,6 +127,50 @@ Create a POST request
 Paste the JSON body
 
 Hit Send
+
+Why I Selected This Tech Stack
+
+I selected this tech stack based on simplicity, reliability, and the ability to build a functional AI screener within a short timeframe:
+
+1. FastAPI
+
+FastAPI is lightweight, fast, and ideal for building clean REST APIs.
+
+Automatic Swagger documentation makes testing easier.
+
+Supports async operations, which I use for parallel evaluation in the ranking API.
+
+2. Python
+
+Excellent ecosystem for AI and LLM projects.
+
+Simple to integrate with external APIs like Gemini.
+
+Async programming is straightforward.
+
+3. Gemini API (Gemini Flash 1.5)
+
+Free to use with an API key, which makes it accessible for personal projects and demos.
+
+Very fast and cost-efficient for evaluation-type tasks (scoring, summarization, feedback).
+
+Provides consistent text-quality judgments, which is essential for this screener.
+
+4. Asyncio (for /rank-candidates)
+
+Lets the API evaluate multiple answers in parallel → much faster responses.
+
+Scales better when multiple candidates are tested.
+
+5. JSON-based API structure
+
+Easy for frontend integration (React, mobile apps, dashboards).
+
+Simple for recruiters/HR tools to plug into.
+
+Overall Decision
+This stack provides the perfect balance of speed, simplicity, cost-effectiveness, and LLM flexibility, allowing me to build a production-like mini AI screener in a short time.
+
 
 
 
